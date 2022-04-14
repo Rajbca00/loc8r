@@ -14,9 +14,6 @@ Guide to build app
 https://developers.google.com/codelabs/maps-platform/google-maps-nearby-search-js#0
 
 
-Google Cloud app
-https://console.cloud.google.com/google/maps-apis/overview?project=durable-firefly-347113&authuser=2
-User     - rajeshrpa00@gmail.com
 
 Github
 https://github.com/Rajbca00/loc8r
