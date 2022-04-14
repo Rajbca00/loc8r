@@ -13,6 +13,8 @@ Requirements
 Guide to build app
 https://developers.google.com/codelabs/maps-platform/google-maps-nearby-search-js#0
 
+http://search.google.com/local/writereview?placeid=ChIJj61dQgK6j4AR4GeTYWZsKWw
+
 
 
 Github

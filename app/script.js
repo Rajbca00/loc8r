@@ -84,6 +84,7 @@ function getNearbyPlaces(position) {
     keyword: "Public Wifi",
   };
 
+
   service = new google.maps.places.PlacesService(map);
   service.nearbySearch(request, nearbyCallback);
 }
@@ -124,7 +125,7 @@ function createMarkers(places) {
        * If we fetch the details for all place results as soon as we get
        * the search response, we will hit API rate limits. */
       service.getDetails(request, (placeResult, status) => {
-        showDetails(placeResult, marker, status);
+        showDetails(place.place_id,placeResult, marker, status);
       });
     });
 
@@ -138,7 +139,7 @@ function createMarkers(places) {
 
 /* TODO: Step 4C: Show place details in an info window */
 // Builds an InfoWindow to display details above the marker
-function showDetails(placeResult, marker, status) {
+function showDetails(placeId,placeResult, marker, status) {
   if (status == google.maps.places.PlacesServiceStatus.OK) {
     let placeInfowindow = new google.maps.InfoWindow();
     let rating = "None";
@@ -154,7 +155,7 @@ function showDetails(placeResult, marker, status) {
     placeInfowindow.open(marker.map, marker);
     currentInfoWindow.close();
     currentInfoWindow = placeInfowindow;
-    showPanel(placeResult);
+    showPanel(placeId,placeResult);
   } else {
     console.log("showDetails failed: " + status);
   }
@@ -162,7 +163,7 @@ function showDetails(placeResult, marker, status) {
 
 /* TODO: Step 4D: Load place details in a sidebar */
 // Displays place details in a sidebar
-function showPanel(placeResult) {
+function showPanel(placeId,placeResult) {
   // If infoPane is already open, close it
   if (infoPane.classList.contains("open")) {
     infoPane.classList.remove("open");
@@ -183,7 +184,6 @@ function showPanel(placeResult) {
     infoPane.appendChild(photo);
   }
 
-  console.log(placeResult);
   // Add place details with text formatting
   let name = document.createElement("h1");
   name.classList.add("place");
@@ -195,6 +195,14 @@ function showPanel(placeResult) {
     rating.textContent = `Rating: ${placeResult.rating} \u272e`;
     infoPane.appendChild(rating);
   }
+
+  //Add rating or comment to a place
+  commentbutton = document.createElement('a');
+  commentbutton.target = "_blank";
+  commentbutton.href = "http://search.google.com/local/writereview?placeid="+placeId;
+  commentbutton.textContent = "Add Comment"
+  commentbutton.classList.add('secondary-button');
+  infoPane.appendChild(commentbutton)
 
   opening_hours = document.createElement("p");
   opening_hours.classList.add("opening_hours");
