@@ -1,0 +1,22 @@
+Description
+Loc8r lists nearby places with Wi-Fi where people can go to get some work done. It also displays facilities, opening times, a rating, and a location map for each place. Users will be able to log in and submit ratings and reviews.
+
+Requirements
+1.  List nearby wifi places
+2.  Should also display 
+    - facilities
+    - opening time
+    - rating
+    - location map
+3.  User will able to login and submit rating and reviews
+
+Guide to build app
+https://developers.google.com/codelabs/maps-platform/google-maps-nearby-search-js#0
+
+
+Google Cloud app
+https://console.cloud.google.com/google/maps-apis/overview?project=durable-firefly-347113&authuser=2
+User     - rajeshrpa00@gmail.com
+
+Github
+https://github.com/Rajbca00/loc8r
